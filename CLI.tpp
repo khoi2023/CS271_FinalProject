@@ -1,7 +1,7 @@
 /*
 CLI.tpp
 A file that contains the implementation of the GraphMap class for handling user input and output in the CLI route planner.
-Written by: Khoi V.
+Written by: Khoi V, Duc T.
 */
 #include "CLI.hpp"
 #include <iostream>
@@ -16,6 +16,7 @@ Written by: Khoi V.
 // Return value: true if the graph is successfully loaded, false otherwise.
 // If the user enters 'q', the program quits.
 // If it fails to open the file, an error message is displayed and the user is prompted to try again.
+// Written by: Duc T.
 bool GraphMap::load_file() {
     string file_name;
     cout << "Enter a file name to load, or press 'q' to quit: ";
@@ -64,6 +65,7 @@ bool GraphMap::load_file() {
 // Return value: None.
 // The function prompts the user to enter coordinates and validates the input.
 // If the input is invalid, it continues to prompt until valid coordinates are entered.
+// Written by: Duc T.
 void GraphMap::get_coordinates(double &sx,double &sy,double &ex,double &ey) {
     string line; stringstream ss;
     while (true) {
@@ -87,6 +89,7 @@ void GraphMap::get_coordinates(double &sx,double &sy,double &ex,double &ey) {
 // Function to validate the input coordinates
 // Parameters: sx, sy - start coordinates; ex, ey - end coordinates.
 // Return value: true if the coordinates are valid, false otherwise.
+// Written by: Duc T.
 bool GraphMap::validate_input(double sx,double sy,double ex,double ey) {
     if (ID.find(sx)==ID.end() || ID[sx].find(sy)==ID[sx].end()) {
         cerr<<"Error: Start ("<<sx<<","<<sy<<") not valid!"<<endl;
@@ -102,6 +105,7 @@ bool GraphMap::validate_input(double sx,double sy,double ex,double ey) {
 // Function to find the shortest path using Dijkstra's algorithm
 // Parameters: None.
 // Return value: None.
+// Written by: Khoi V.
 void GraphMap::find_path() {
     double sx,sy,ex,ey;
     // Get start and end coordinates from the user
@@ -180,6 +184,7 @@ void GraphMap::find_path() {
 // Function to quit the program
 // Parameters: None.
 // Return value: None.
+// Written by: Khoi V.
 void GraphMap::quit() {
     cout<<"Exiting... Thank you!"<<endl;
     exit(0);
